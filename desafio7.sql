@@ -1,3 +1,4 @@
+CREATE VIEW perfil_artistas AS
 SELECT
 artistas.artista AS artista,
 albuns.album AS album,
