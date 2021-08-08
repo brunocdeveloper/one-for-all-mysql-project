@@ -19,8 +19,8 @@ CONSTRAINT FOREIGN KEY (plano_id) REFERENCES planos (plano_id)
 );
 
 CREATE TABLE artistas(
-	artista_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    artista VARCHAR(50) NOT NULL
+artista_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+artista VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE albuns(
@@ -132,4 +132,3 @@ VALUES
 (3, 4),
 (18, 4),
 (11, 4);
-
