@@ -115,3 +115,21 @@ VALUES
 ('Thang Of Thunder', 4, 5),
 ('Words Of Her Life', 4, 5),
 ('Without My Streets', 4, 5);
+
+INSERT INTO historico_cancoes(cancoes_id, usuario_id)
+VALUES
+(1, 1),
+(6, 1),
+(14, 1),
+(16, 1),
+(13, 2),
+(17, 2),
+(2, 2),
+(15, 2),
+(4, 3),
+(16, 3),
+(6, 3),
+(3, 4),
+(18, 4),
+(11, 4);
+
