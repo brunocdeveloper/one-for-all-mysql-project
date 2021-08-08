@@ -5,7 +5,7 @@ USE SpotifyClone;
 CREATE TABLE planos(
 plano_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 plano VARCHAR(20) NOT NULL,
-valor  DOUBLE NOT NULL
+valor DECIMAL(10, 2) NOT NULL
 );
 
 CREATE TABLE usuarios(
@@ -72,7 +72,7 @@ VALUES
 ('Walter Phoenix'),
 ('Peter Strong'),
 ('Lance Day'),
-('Freedle Shannoon');
+('Freedie Shannon');
 
 INSERT INTO albuns(album, artista_id)
 VALUES
