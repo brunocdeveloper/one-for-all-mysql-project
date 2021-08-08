@@ -63,7 +63,7 @@ VALUES
 INSERT INTO usuarios(usuario, idade, plano_id)
 VALUES
 ('Thati', 23,1),
-('Cinthia', 35, 2),
+('Cintia', 35, 2),
 ('Bill', 20, 3),
 ('Roger', 45, 1);
 
@@ -96,7 +96,7 @@ VALUES
 INSERT INTO cancoes(cancoes_nome, artista_id, album_id)
 VALUES
 ('Soul For Us', 1, 1),
-('Reflections of Magic', 1, 1),
+('Reflections Of Magic', 1, 1),
 ('Dance With Her Own', 1, 1),
 ('Troubles Of My Inner Fire', 1, 2),
 ('Time Fireworks', 1, 2),
