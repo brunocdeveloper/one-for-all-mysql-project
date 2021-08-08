@@ -4,49 +4,39 @@ CREATE DATABASE SpotifyClone;
 
 USE SpotifyClone;
 
+CREATE TABLE planos(
+plano_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+plano VARCHAR(20) NOT NULL,
+valor  DOUBLE NOT NULL
+);
+
+CREATE TABLE usuarios(
+usuario_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+usuario VARCHAR(50) NOT NULL,
+idade INT NOT NULL,
+plano_id INT NOT NULL,
+CONSTRAINT FOREIGN KEY (plano_id) REFERENCES planos (plano_id)
+);
+
 CREATE TABLE artistas(
 	artista_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     artista VARCHAR(50) NOT NULL
 );
 
-
-CREATE TABLE planos(
-	plano_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    plano VARCHAR(20) NOT NULL,
-    valor  DOUBLE NOT NULL
-);
-
-CREATE TABLE usuarios(
-	usuario_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    usuario VARCHAR(50) NOT NULL,
-    idade INT NOT NULL,
-    plano_id INT NOT NULL,
-    CONSTRAINT FOREIGN KEY (plano_id) REFERENCES planos (plano_id)
-);
-
 CREATE TABLE albuns(
-	album_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    album VARCHAR(20) NOT NULL,
-    artista_id INT NOT NULL,
-    CONSTRAINT FOREIGN KEY (artista_id) REFERENCES artistas (artista_id)
-);
-
-CREATE TABLE seguidores_artistas(
-	seguidor_id INT NOT NULL AUTO_INCREMENT,
-    usuario_id INT NOT NULL,
-    artista_id INT NOT NULL,
-    CONSTRAINT PRIMARY KEY(seguidor_id, usuario_id, artista_id),
-    CONSTRAINT FOREIGN KEY (usuario_id) REFERENCES usuarios (usuario_id),
-    CONSTRAINT FOREIGN KEY (artista_id) REFERENCES artistas (artista_id)
+album_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+album VARCHAR(20) NOT NULL,
+artista_id INT NOT NULL,
+CONSTRAINT FOREIGN KEY (artista_id) REFERENCES artistas (artista_id)
 );
 
 CREATE TABLE cancoes(
-	cancoes_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    cancoes_nome VARCHAR(50) NOT NULL,
-    artista_id INT NOT NULL,
-    album_id INT NOT NULL,
-    CONSTRAINT FOREIGN KEY (artista_id) REFERENCES artistas (artista_id),
-	CONSTRAINT FOREIGN KEY (album_id) REFERENCES albuns (album_id)
+cancoes_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+cancoes_nome VARCHAR(50) NOT NULL,
+artista_id INT NOT NULL,
+album_id INT NOT NULL,
+CONSTRAINT FOREIGN KEY (artista_id) REFERENCES artistas (artista_id),
+CONSTRAINT FOREIGN KEY (album_id) REFERENCES albuns (album_id)
 );
 
 CREATE TABLE historico_cancoes(
@@ -55,6 +45,15 @@ CREATE TABLE historico_cancoes(
     CONSTRAINT PRIMARY KEY (cancoes_id, usuario_id),
     CONSTRAINT FOREIGN KEY (cancoes_id) REFERENCES cancoes (cancoes_id),
     CONSTRAINT FOREIGN KEY (usuario_id) REFERENCES usuarios (usuario_id)
+);
+
+CREATE TABLE seguidores_artistas(
+seguidor_id INT NOT NULL AUTO_INCREMENT,
+usuario_id INT NOT NULL,
+artista_id INT NOT NULL,
+CONSTRAINT PRIMARY KEY(seguidor_id, usuario_id, artista_id),
+CONSTRAINT FOREIGN KEY (usuario_id) REFERENCES usuarios (usuario_id),
+CONSTRAINT FOREIGN KEY (artista_id) REFERENCES artistas (artista_id)
 );
 
 INSERT INTO planos(plano, valor)
