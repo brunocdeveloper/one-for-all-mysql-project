@@ -1,7 +1,5 @@
 DROP DATABASE IF EXISTS SpotifyClone;
-
 CREATE DATABASE SpotifyClone;
-
 USE SpotifyClone;
 
 CREATE TABLE planos(
@@ -40,11 +38,11 @@ CONSTRAINT FOREIGN KEY (album_id) REFERENCES albuns (album_id)
 );
 
 CREATE TABLE historico_cancoes(
-    cancoes_id INT NOT NULL,
-    usuario_id INT NOT NULL,
-    CONSTRAINT PRIMARY KEY (cancoes_id, usuario_id),
-    CONSTRAINT FOREIGN KEY (cancoes_id) REFERENCES cancoes (cancoes_id),
-    CONSTRAINT FOREIGN KEY (usuario_id) REFERENCES usuarios (usuario_id)
+cancoes_id INT NOT NULL,
+usuario_id INT NOT NULL,
+CONSTRAINT PRIMARY KEY (cancoes_id, usuario_id),
+CONSTRAINT FOREIGN KEY (cancoes_id) REFERENCES cancoes (cancoes_id),
+CONSTRAINT FOREIGN KEY (usuario_id) REFERENCES usuarios (usuario_id)
 );
 
 CREATE TABLE seguidores_artistas(
